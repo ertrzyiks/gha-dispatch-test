@@ -15,11 +15,11 @@ jobs:
     steps:
 
       - name: Retrieve param from input
-        if: github.event_name == 'workflow_dispatch'
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: |
           echo "PARAM=${{github.event.input.paramName}}" >> $GITHUB_ENV
       - name: Retrieve param from payload
-          if: github.event_name == 'repository_dispatch'
+          if: ${{ github.event_name == 'repository_dispatch' }}
           run: |
             echo "PARAM=${{github.event.input.paramName}}" >> $GITHUB_ENV
       - name: Run provider contract verification
