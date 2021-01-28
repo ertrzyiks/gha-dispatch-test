@@ -8,6 +8,7 @@ on:
     inputs:
       paramName:
         description: 'Param'
+        required: true
 
 jobs:
   debug:
