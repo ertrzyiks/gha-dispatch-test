@@ -19,9 +19,9 @@ jobs:
         run: |
           echo "PARAM=${{github.event.input.paramName}}" >> $GITHUB_ENV
       - name: Retrieve param from payload
-          if: ${{ github.event_name == 'repository_dispatch' }}
-          run: |
-            echo "PARAM=${{github.event.input.paramName}}" >> $GITHUB_ENV
+        if: ${{ github.event_name == 'repository_dispatch' }}
+        run: |
+          echo "PARAM=${{github.event.input.paramName}}" >> $GITHUB_ENV
       - name: Run provider contract verification
         env:
           PARAM: ${{env.PARAM}}
